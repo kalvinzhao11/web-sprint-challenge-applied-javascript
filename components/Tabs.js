@@ -29,9 +29,8 @@ axios.get('https://lambda-times-api.herokuapp.com/topics')
             tab(topic)
             console.log('hi')
         });
-        // debugger
     })
     .catch(error => {
-        debugger
+        window.alert(error);
     })
 

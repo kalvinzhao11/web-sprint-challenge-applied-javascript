@@ -49,13 +49,37 @@ const cardMaker = (obj) => {
 
 const cardContainer = document.querySelector('.cards-container')
 
+var content = 'javascript'
+
+// for (let x in trendingTop)
+
+// const trendingTop = document.querySelector('.topics').childNodes
+// // const trending = Array.from(trendingTop)
+// // console.log(trendingTop)
+// trendingTop.forEach(item => {
+//     console.log(item)
+//     if (item.classList != ('.tab')){
+//         // console.log('s')
+//     } else {
+//         item.addEventListener('click', () =>{
+//             // content = item.textContent
+//             // console.log(content)
+//             console.log('hi==')
+//         })
+//     }
+// })
+// // console.log(trending)
+// console.log(trendingTop)
+
+
 axios.get('https://lambda-times-api.herokuapp.com/articles')
     .then(response => {
-        const data = response.data.articles.bootstrap
+        console.log(response)
+        const data = response.data.articles[content]
         data.forEach(articles => {
             cardContainer.appendChild(cardMaker(articles))
         });
     })
     .catch(error => {
-        debugger
+        alert(error)
     })
