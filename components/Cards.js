@@ -53,23 +53,25 @@ var content = 'javascript'
 
 // for (let x in trendingTop)
 
-// const trendingTop = document.querySelector('.topics').childNodes
-// // const trending = Array.from(trendingTop)
-// // console.log(trendingTop)
-// trendingTop.forEach(item => {
-//     console.log(item)
-//     if (item.classList != ('.tab')){
-//         // console.log('s')
-//     } else {
-//         item.addEventListener('click', () =>{
-//             // content = item.textContent
-//             // console.log(content)
-//             console.log('hi==')
-//         })
-//     }
-// })
-// // console.log(trending)
+const trendingTop = document.querySelector('.topics').childNodes
+// const trending = Array.from(trendingTop)
 // console.log(trendingTop)
+trendingTop.forEach(item => {
+    console.log(item)
+    if (item.classList != ('.tab')){
+        // console.log('s')
+    } else {
+        item.addEventListener('click', () =>{
+            // content = item.textContent
+            // console.log(content)
+            console.log('hi==')
+        })
+    }
+})
+// console.log(trending)
+console.log(trendingTop)
+
+
 
 
 axios.get('https://lambda-times-api.herokuapp.com/articles')
@@ -81,5 +83,9 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
         });
     })
     .catch(error => {
-        alert(error)
+        const errors = document.querySelector(".errors-container")
+        const errMessge = document.createElement('p')
+        errMessge.textContent = error
+        errors.appendChild(errMessge)
     })
+

@@ -31,6 +31,9 @@ axios.get('https://lambda-times-api.herokuapp.com/topics')
         });
     })
     .catch(error => {
-        window.alert(error);
+        const errors = document.querySelector(".errors-container")
+        const errMessge = document.createElement('p')
+        errMessge.textContent = error
+        errors.appendChild(errMessge)
     })
 
